@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Detection 2</title>
+    <style>
+        /* General page styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2em;
+            padding: 20px;
+        }
+
+        /* Container for the video */
+        #video-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for the video feed */
+        #video-feed {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Message container */
+        #message-container {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        /* Button style */
+        .action-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .action-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling for output area */
+        #output {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #FF5722;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sign Detection 2</h1>
+
+    <!-- Video Stream -->
+    <div id="video-container">
+        <img id="video-feed" src="{{ url_for('video_feed') }}" />
+    </div>
+
+    <!-- Output display -->
+    <div id="output">
+        <!-- Placeholder for dynamic output like predicted signs -->
+        <p>Sign Prediction: <span id="prediction">None</span></p>
+    </div>
+
+    <!-- Message area -->
+    <div id="message-container">
+        <p>Waiting for hand sign detection...</p>
+    </div>
+
+    <!-- Action button -->
+    <button class="action-btn" onclick="startDetection()">Start Detection</button>
+
+    <script>
+        function startDetection() {
+            // Sample function for triggering sign detection
+            document.getElementById('prediction').innerText = 'Detecting...';
+            document.getElementById('message-container').innerHTML = '<p>Processing video stream...</p>';
+            
+            // Simulating the detection process (for now just changes prediction)
+            setTimeout(() => {
+                document.getElementById('prediction').innerText = 'A';
+                document.getElementById('message-container').innerHTML = '<p>Sign Detected: A</p>';
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
